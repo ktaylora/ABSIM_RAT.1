@@ -1,8 +1,9 @@
 class Macroeconomics:
     def __init__(self):
-        """ Macroeconomic parameters were selected for simulating two producer heuristics: (1) the 'representativeness 
-        heuristic' and (2) 'shiller speculative bubble'. These can be used mechanistically or modeled with
-        data -- such as with decision trees. See the builder interface(s) for implementations. """
+        """ These macroeconomic parameters are broadly tracked by commodity market investors and businesses.
+        In particular, they were selected for simulating two producer heuristics by producers : (1) the 
+        'representativeness heuristic' and (2) 'shiller speculative bubble'. These can be used mechanistically 
+        or modeled with data -- such as with decision trees. See the builder interface(s) for implementations. """
         self._ten_year_crb_range = []            # Thomson Reuters/CoreCommodity CRB Commodity Index (Annualized)
         self._crb = []                           # Thomson Reuters/CoreCommodity CRB Commodity Index (Annualized)
         self._ten_year_global_cattle_range = []  # global cattle price high

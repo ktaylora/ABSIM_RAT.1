@@ -3,7 +3,9 @@ class Macroeconomics:
         """ These macroeconomic parameters are broadly tracked by commodity market investors and businesses.
         In particular, they were selected for simulating two producer heuristics : (1) the 
         'representativeness heuristic' and (2) 'shiller speculative bubble'. These can be represented mechanistically 
-        or modeled with data -- such as with decision trees. See the builder interface for implementations. """
+        or modeled with data -- such as with decision trees. See the builder interface for
+        derived-class implementations. """
+        # Parameters
         self._ten_year_crb_range = []            # Thomson Reuters/CoreCommodity CRB Commodity Index (Long-run, Annualized)
         self._crb = []                           # Thomson Reuters/CoreCommodity CRB Commodity Index (Annualized)
         self._ten_year_global_cattle_range = []  # global cattle price high
@@ -15,7 +17,13 @@ class Macroeconomics:
         self._inflation = []                     # US inflation rate (annualized mean)
         self._ten_year_gdp_range = []            # high and low of (Long-run, Annualized) US GDP
         self._us_gdp = None                      # this year's (Annualized mean) GDP
-        
+        # handlers
+        __shared_state = {}
+        __register = {}
+        self.__dict__ = self.__shared_state
+        if not self.__register:
+            self._init_default_register()
+
         
 class Neighborhood:
     def __init__(self):

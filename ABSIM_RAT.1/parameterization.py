@@ -1,5 +1,5 @@
 class Macroeconomics:
-    def __init__(self):
+    def __init__(self, *args):
         """ These macroeconomic parameters are broadly tracked by commodity market investors and businesses.
         In particular, they were selected for simulating two producer heuristics : (1) the 
         'representativeness heuristic' and (2) 'shiller speculative bubble'. These can be represented mechanistically 
@@ -15,7 +15,8 @@ class Macroeconomics:
         self._inflation = []                     # us inflation rate (annualized mean)
         self._ten_year_gdp_range = []            # high and low of (annualized) US GDP
         self._us_gdp = None                      # This year's (annualized mean) GDP
-
+        
+        
 class Neighborhood:
     def __init__(self):
         """ Neighborhood effects on a producer. By design, the neighborhood in our analyses is typically the size of

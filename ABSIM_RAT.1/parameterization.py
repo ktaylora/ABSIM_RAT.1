@@ -1,4 +1,7 @@
 class Macroeconomics:
+    # handlers
+    __shared_state = {}
+    __register = {}
     def __init__(self, *args):
         """ These macroeconomic parameters are broadly tracked by commodity market investors and businesses.
         In particular, they were selected for simulating two producer heuristics : (1) the 
@@ -17,9 +20,7 @@ class Macroeconomics:
         self._inflation = []                     # US inflation rate (annualized mean)
         self._ten_year_gdp_range = []            # high and low of (Long-run, Annualized) US GDP
         self._us_gdp = None                      # this year's (Annualized mean) GDP
-        # handlers
-        __shared_state = {}
-        __register = {}
+
         self.__dict__ = self.__shared_state
         if not self.__register:
             self._init_default_register()

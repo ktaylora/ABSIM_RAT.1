@@ -1,10 +1,13 @@
 class Macroeconomics:
     def __init__(self):
-        self._global_cattle_price = []
-        self._regional_cattle_price = []
-        self._global_crop_prices = []    # proxy for belief about aggregate global demand for crops
-        self._regional_crop_prices = []  # proxy for belief about aggregate local (i.e., metropolitian) demand
-        self._inflation = []             # us inflation rate (annualized mean)
+        self._ten_year_crb_index = []            # Thomson Reuters/CoreCommodity CRB Commodity Index (Annualized)
+        self._ten_year_global_cattle_high = None # global cattle price high
+        self._global_cattle_price = None         # this year's average global cattle price
+        self._regional_cattle_price = None       # this year's average regional cattle price
+        self._ten_year_global_crop_high = None   # global crop price high 
+        self._global_crop_prices = []            # proxy for belief about aggregate global demand for crops
+        self._regional_crop_prices = []          # proxy for belief about aggregate local (i.e., metropolitian) demand
+        self._inflation = []                     # us inflation rate (annualized mean)
 
 class Neighborhood:
     def __init__(self):

@@ -4,7 +4,7 @@ class Macroeconomics:
         In particular, they were selected for simulating two producer heuristics : (1) the 
         'representativeness heuristic' and (2) 'shiller speculative bubble'. These can be represented mechanistically 
         or modeled with data -- such as with decision trees. See the builder interface for implementations. """
-        self._ten_year_crb_range = []            # Thomson Reuters/CoreCommodity CRB Commodity Index (Annualized)
+        self._ten_year_crb_range = []            # Thomson Reuters/CoreCommodity CRB Commodity Index (Long-run, Annualized)
         self._crb = []                           # Thomson Reuters/CoreCommodity CRB Commodity Index (Annualized)
         self._ten_year_global_cattle_range = []  # global cattle price high
         self._global_cattle_price = None         # this year's average global cattle price
@@ -12,9 +12,9 @@ class Macroeconomics:
         self._ten_year_global_crop_range = []    # global crop price low and high 
         self._global_crop_prices = []            # proxy for belief about aggregate global demand for crops
         self._regional_crop_prices = []          # proxy for belief about aggregate local (i.e., metropolitian) demand
-        self._inflation = []                     # us inflation rate (annualized mean)
-        self._ten_year_gdp_range = []            # high and low of (annualized) US GDP
-        self._us_gdp = None                      # This year's (annualized mean) GDP
+        self._inflation = []                     # US inflation rate (annualized mean)
+        self._ten_year_gdp_range = []            # high and low of (Long-run, Annualized) US GDP
+        self._us_gdp = None                      # this year's (Annualized mean) GDP
         
         
 class Neighborhood:

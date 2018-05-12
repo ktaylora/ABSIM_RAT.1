@@ -12,7 +12,7 @@ class Macroeconomics:
         self._regional_crop_prices = []          # proxy for belief about aggregate local (i.e., metropolitian) demand
         self._inflation = []                     # us inflation rate (annualized mean)
         self._ten_year_gdp_range = []            # high and low of (annualized) US GDP
-        self._us_gdp = []                        # This year's (annualized mean) GDP
+        self._us_gdp = None                      # This year's (annualized mean) GDP
 
 class Neighborhood:
     def __init__(self):

@@ -9,7 +9,7 @@ class Macroeconomics:
 class Neighborhood:
     def __init__(self):
         """ Neighborhood effects on a producer. By design, the neighborhood in our analyses is typically the size of
-        a US county -- though larger sample sizes are not inconceivable.
+        a US county though larger sample sizes are not inconceivable
         """
         self._size = None                # maximum distance from existing operation you are willing to purchase new land
         self._number_of_parcels = None   # total number of parcels available for purchase
@@ -21,10 +21,10 @@ class Neighborhood:
 
 class LandUnitProductionSuitability:
     def __init__(self):
-        """ Production suitability is a per-unit index (0-100) representing probability that an area is suitable
+        """ Production suitability is a per-unit index (0-100) representing probability that an area is used
         for production. The expectation is that a unit with an index value greater than 50 is more likely to be used
-        than a unit with an index of less than 50. Suitability indices are often generated from data from a statistical
-        model such as a generalized linear model or random forests."""
+        than a unit with an index of less than 50. Suitability indices are often generated from data using a statistical
+        model such as a generalized linear model"""
         self._using_grazing_rotations= False
         self._using_crop_rotations = True
         self._years_under_production = 0

@@ -1,5 +1,5 @@
-class Macroeconomics:
-    # handlers
+class Macroeconomics: 
+    # borg-like handlers
     __shared_state = {}
     __register = {}
     def __init__(self, *args):
@@ -27,10 +27,14 @@ class Macroeconomics:
             self._ten_year_gdp_range = args[9]  # high and low of (Long-run, Annualized) US GDP
             self._us_gdp = args[10]  # this year's (Annualized mean) GDP
         except Exception as e:
+            # it's important that this class raises instantiation errors, because so much depends on a red wheel barrow
             raise e
 
 
 class Neighborhood:
+    # borg-like handlers
+    __shared_state = {}
+    __register = {}
     def __init__(self):
         """ Neighborhood effects on a producer. By design, the neighborhood in our analyses is typically the size of
         a US county though larger sample sizes are not inconceivable
@@ -43,7 +47,7 @@ class Neighborhood:
         self._buyer_interest = []        # index of each neighbor's interest in buying a parcel from you
 
 
-class LandUnitProductionSuitability:
+class LandUnitProductionSuitability: 
     def __init__(self):
         """ Production suitability is a per-unit index (0-100) representing probability that an area is used
         for production. The expectation is that a unit with an index value greater than 50 is more likely to be used

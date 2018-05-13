@@ -1,21 +1,18 @@
-import warnings
-
 class Macroeconomics:
     # handlers
     __shared_state = {}
     __register = {}
-
     def __init__(self, *args):
-        self.__dict__ = self.__shared_state
-        if not self.__register:
-            self._init_default_register(*args)
-
-    def _init_default_register(self, *args):
         """ These macroeconomic parameters are broadly tracked by commodity market investors and businesses.
         In particular, they were selected for simulating two producer heuristics : (1) the
         'representativeness heuristic' and (2) 'shiller speculative bubble'. These can be represented mechanistically
         or modeled with data -- such as with decision trees. See the builder interface for
         derived-class implementations. """
+        self.__dict__ = self.__shared_state
+        if not self.__register:
+            self._init_default_register(*args)
+
+    def _init_default_register(self, *args):
         # Parameters
         try:
             self._ten_year_crb_range = args[0] # Thomson Reuters/CoreCommodity CRB Commodity Index
@@ -30,18 +27,7 @@ class Macroeconomics:
             self._ten_year_gdp_range = args[9]  # high and low of (Long-run, Annualized) US GDP
             self._us_gdp = args[10]  # this year's (Annualized mean) GDP
         except Exception as e:
-            warnings.warn("Using default Null starting parameters", Warning, stacklevel=2)
-            self._ten_year_crb_range = []  # Thomson Reuters/CoreCommodity CRB Commodity Index (Long-run, Annualized)
-            self._crb = []  # Thomson Reuters/CoreCommodity CRB Commodity Index (Annualized)
-            self._ten_year_global_cattle_range = []  # global cattle price high
-            self._global_cattle_price = None  # this year's average global cattle price
-            self._regional_cattle_price = None  # this year's average regional cattle price
-            self._ten_year_global_crop_range = []  # global crop price low and high
-            self._global_crop_prices = []  # proxy for belief about aggregate global demand for crops
-            self._regional_crop_prices = []  # proxy for belief about aggregate local (i.e., metropolitian) demand
-            self._inflation = []  # US inflation rate (annualized mean)
-            self._ten_year_gdp_range = []  # high and low of (Long-run, Annualized) US GDP
-            self._us_gdp = None  # this year's (Annualized mean) GDP
+            raise e
 
 
 class Neighborhood:

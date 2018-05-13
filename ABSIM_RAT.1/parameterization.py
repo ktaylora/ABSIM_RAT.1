@@ -39,13 +39,22 @@ class Neighborhood:
         """ Neighborhood effects on a producer. By design, the neighborhood in our analyses is typically the size of
         a US county though larger sample sizes are not inconceivable
         """
-        self._size = None                # maximum distance from existing operation you are willing to purchase new land
-        self._number_of_parcels = None   # total number of parcels available for purchase
-        self._crop_suitabilities = []    # index of each neighbor's crop suitabilites
-        self._cattle_suitabilities = []  # index of each neighbor's cattle suitabilities
-        self._seller_interest = []       # index of each neighbor's interest in selling their parcel to you
-        self._buyer_interest = []        # index of each neighbor's interest in buying a parcel from you
+        self.__dict__ = self.__shared_state
+        if not self.__register:
+            self._init_default_register(*args)
 
+    def _init_default_register(self, *args):
+        # Parameters
+        try:
+            self._size = None                            # maximum distance from existing operation you are willing to purchase new land
+            self._unids = None                           # list of unique identifiers for each agent in the neighborhood 
+            self._number_of_parcels = 0                  # total number of parcels available for purchase
+            self._crop_suitabilities = []                # index of each neighborhood crop suitabilites
+            self._cattle_suitabilities = []              # index of each neighborhood cattle suitabilities
+            self._seller_interest = []                   # index of each neighbors' interest in selling their parcels to you
+            self._buyer_interest = []                    # index of each neighbors' interest in buying a parcel from you
+        except Exception as e:
+            raise e
 
 class LandUnitProductionSuitability: 
     def __init__(self):
@@ -83,7 +92,7 @@ class ProducerBudget:
         self._crops_managed = []             # Types of crops planted by this producer
         self._cattle_managed = None          # Number of cattle managed by this producer
         self._savings = None                 # How much money do you have in the bank
-        self._annual_tax_rate = None
+        self._annual_tax_rate = None         # Annual tax burden
 
     @property
     def annual_operating_cost(self):

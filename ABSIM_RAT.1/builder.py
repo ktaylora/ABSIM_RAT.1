@@ -11,6 +11,7 @@ class SpeculativeBubbleStrategy:
 
 class RepresentativenessStrategy:
     def __init__(self, *args):
+        # args is a list-of-lists
         self._macroeconomics = Macroeconomics(args[0])
         self._neighborhood = Neighborhood(args[1])
         self._production_suitability = Neighborhood(args[2])

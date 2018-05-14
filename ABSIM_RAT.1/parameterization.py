@@ -2,7 +2,8 @@ class Macroeconomics:
     # borg-like handlers
     __shared_state = {}
     __register = {}
-    def __init__(self, *args):
+
+    def __init__(self, *args, **kwargs):
         """ These macroeconomic parameters are broadly tracked by commodity market investors and businesses.
         In particular, they were selected for simulating two producer heuristics : (1) the
         'representativeness heuristic' and (2) 'shiller speculative bubble'. These can be represented mechanistically
@@ -10,22 +11,22 @@ class Macroeconomics:
         derived-class implementations. """
         self.__dict__ = self.__shared_state
         if not self.__register:
-            self._init_default_register(*args)
+            self._init_default_register(*args, **kwargs)
 
-    def _init_default_register(self, *args):
+    def _init_default_register(self, *args, **kwargs):
         # Parameters
         try:
-            self._ten_year_crb_range = args[0] # Thomson Reuters/CoreCommodity CRB Commodity Index
-            self._crb = args[1] # Thomson Reuters/CoreCommodity CRB Commodity Index (this year)
-            self._ten_year_global_cattle_range = args[2]  # global cattle price high
-            self._global_cattle_price = args[3]  # this year's average global cattle price
-            self._regional_cattle_price = args[4]  # this year's average regional cattle price
-            self._ten_year_global_crop_range = args[5]  # global crop price low and high
-            self._global_crop_prices = args[6]  # proxy for belief about aggregate global demand for crops
-            self._regional_crop_prices = args[7]  # proxy for belief about aggregate local (i.e., metropolitian) demand
-            self._inflation = args[8]  # US inflation rate (annualized mean)
-            self._ten_year_gdp_range = args[9]  # high and low of (Long-run, Annualized) US GDP
-            self._us_gdp = args[10]  # this year's (Annualized mean) GDP
+            self._ten_year_crb_range = kwargs.get('crb_range', args[0])  # Thomson Reuters/CoreCommodity CRB Commodity Index
+            self._crb = kwargs.get('crb', args[1])  # Thomson Reuters/CoreCommodity CRB Commodity Index (this year)
+            self._ten_year_global_cattle_range = kwargs.get('cattle_price_range', args[2])  # global cattle price high
+            self._global_cattle_price = kwargs.get('global_cattle_price', args[3])  # this year's average global cattle price
+            self._regional_cattle_price = kwargs.get('regional_cattle_price', args[4])  # this year's average regional cattle price
+            self._ten_year_global_crop_range = kwargs.get('crop_price_range', args[5])  # global crop price low and high
+            self._global_crop_price = kwargs.get('global_crop_price', args[6])  # proxy for belief about aggregate global demand for crops
+            self._regional_crop_price = kwargs.get('regional_crop_price', args[7])  # proxy for belief about aggregate local (i.e., metropolitian) demand
+            self._inflation = kwargs.get('inflation', args[8])  # inflation rate (annualized mean)
+            self._ten_year_gdp_range = kwargs.get('gdp_range', args[9])  # high and low of (Long-run, Annualized) US GDP
+            self._us_gdp = kwargs.get('gdp', args[10])  # this year's (Annualized mean) GDP
         except Exception as e:
             # it's important that this class raises instantiation errors, because so much depends on a red wheel barrow
             raise e

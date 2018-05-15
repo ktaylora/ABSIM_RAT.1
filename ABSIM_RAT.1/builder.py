@@ -5,11 +5,15 @@ class Builder:
         pass
 
 
-class SpeculativeBubbleStrategy:
+class EmpiricalSpeculativeBubbleStrategy:
     pass
 
 
-class RepresentativenessStrategy:
+class MechanisticSpeculativeBubbleStrategy:
+    pass
+
+
+class _RepresentativenessStrategy:
     def __init__(self, *args, **kwargs):
         # try to use named arguments by default
         try:
@@ -21,3 +25,12 @@ class RepresentativenessStrategy:
             self._budget = kwargs.get('budget', args[5])
         except Exception as e:
             raise e
+
+
+class EmpiricalRepresentativenessStrategy(_RepresentativenessStrategy):
+    pass
+
+
+class MechanisticRepresentativenessStrategy(_RepresentativenessStrategy):
+    def __init__(self, *args, **kwargs):
+        pass

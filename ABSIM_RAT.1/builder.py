@@ -1,15 +1,22 @@
-from parameterization import *
+import math
+
+from .parameterization import *
+from .downloaders import *
 
 class Builder:
     def __init__(self):
         pass
 
 
-class EmpiricalSpeculativeBubbleStrategy:
+class _SpeculativeBubbleStrategy:
     pass
 
 
-class MechanisticSpeculativeBubbleStrategy:
+class EmpiricalSpeculativeBubbleStrategy(_SpeculativeBubbleStrategy):
+    pass
+
+
+class MechanisticSpeculativeBubbleStrategy(_SpeculativeBubbleStrategy):
     pass
 
 
@@ -32,5 +39,7 @@ class EmpiricalRepresentativenessStrategy(_RepresentativenessStrategy):
 
 
 class MechanisticRepresentativenessStrategy(_RepresentativenessStrategy):
-    def __init__(self, *args, **kwargs):
-        pass
+    def marco_decision(self):
+        """fit a beta coefficient to our ten-year commodity market median
+        and use the curve to predict favorability"""
+        beta = math.log(0.5) / self._macroeconomics._ten_year_crb_median

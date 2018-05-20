@@ -16,7 +16,7 @@ class Macroeconomics:
     def _init_default_register(self, *args, **kwargs):
         # Parameters
         try:
-            self._ten_year_crb_range = kwargs.get('crb_range', args[0])  # Thomson Reuters/CoreCommodity CRB Commodity Index
+            self._ten_year_crb_median = kwargs.get('crb_median', args[0])  # Thomson Reuters/CoreCommodity CRB
             self._crb = kwargs.get('crb', args[1])  # Thomson Reuters/CoreCommodity CRB Commodity Index (this year)
             self._ten_year_global_cattle_range = kwargs.get('cattle_price_range', args[2])  # global cattle price high
             self._global_cattle_price = kwargs.get('global_cattle_price', args[3])  # this year's average global cattle price
